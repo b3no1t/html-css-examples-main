@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Offcanvas / Checkbox</title>
+</head>
+<style>
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 63.5%;
+  font-family: "Roboto Slab", serif;
+  height: 100%;
+}
+body {
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  height: 100%;
+}
+.wrapper {
+  height: 100%;
+}
+.container {
+  margin: 0 15px;
+}
+.row {
+  padding: 15px;
+  margin: 0px;
+}
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+nav li {
+  padding: 8px;
+}
+aside {
+ background-color: #333;
+ color: #fff;
+ width: 40%;
+ margin-left: -40%;
+ height: 100dvh;
+}
+section {
+ width: 100%;
+ height: 100%;
+ margin-right: 0;
+
+}
+.toggle:checked + .wrapper > aside {
+ margin-left: 0;
+}
+.toggle:checked + .wrapper > section {
+ margin-left: -40%;
+}
+.toggler {
+ display: inline-block;
+ cursor: pointer;
+}
+.navicon {
+ width: 28px;
+ height: 28px;
+ background-image: url(./assets/img/navicon.png);
+ background-size: cover;
+ display: block;
+ cursor: pointer;
+
+}
+.toggle { 
+ display: none;
+}
+aside,
+section {
+  transition: margin 0.5s ease-in-out;
+
+}
+</style>
+<body>
+ <input type="checkbox" id="offcanvas" class="toggle" />
+ <div class="wrapper">
+  <aside>
+   <nav>
+    <ul>
+     <li><a href="#">nav 1</a></li>
+     <li><a href="#">nav 2</a></li>
+     <li><a href="#">nav3</a></li>
+     <li><a href="#">nav4</a></li>
+    </ul>
+   </nav>
+  </aside>
+ </div>
+
+ <section>
+  <div class="container">
+   <div class="row">
+     <label for="offcanvas" class="toggler">
+       <span class="navicon"></span>
+     </label>
+   </div>
+   <div class="container">
+   <div class="row">
+
+    <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolore maxime similique molestias repellat numquam quam eaque distinctio ipsam eveniet eos dignissimos minima corrupti consequuntur alias modi saepe, atque at!
+   </p>
+   </div>
+   </div>
+ </div>
+</section>
+
+</body>
+</html>

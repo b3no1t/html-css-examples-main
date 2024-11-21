@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drop and Box in a shadow of css</title>
+    <style>
+      .box-shadow img {
+        box-shadow: 0 0 20px #3d3d3d;
+      }
+
+      .drop-shadow img {
+        filter: drop-shadow(0 0 20px #3d3d3d);
+      }
+      .container {
+        width: 768px;
+        margin: 0 auto;
+      }
+      .row {
+        display: flex;
+      }
+      .column {
+        width: 50%;
+      }
+      .w-100 {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column box-shadow">
+          <h1>Box Shadow</h1>
+          <img
+            class="w-100"
+            src="https://www.freeiconspng.com/uploads/pokemon-png-3.png"
+          />
+        </div>
+        <div class="column drop-shadow">
+          <h1>Drop Shadow</h1>
+          <img
+            class="w-100"
+            src="https://www.freeiconspng.com/uploads/pokemon-png-3.png"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

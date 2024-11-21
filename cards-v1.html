@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card rounded inverse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      .heading h2 {
+        text-align: center;
+        font-size: 34px;
+        margin: 60px 0px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .card {
+        width: 300px;
+      }
+
+      .card .card-inner {
+        position: relative;
+        height: 300px;
+        border-radius: 25px;
+        overflow: hidden;
+      }
+
+      .card .card-inner .box .img-box {
+        position: absolute;
+        inset: 0;
+        transition: 0.3s all linear;
+      }
+
+      .card .card-inner .box .img-box:hover {
+        transform: scale(1.1);
+      }
+
+      .card .card-inner .box .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* object-fit maintain the aspect ratio   */
+      }
+
+      .icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        border-top-left-radius: 50px;
+        padding: 12px;
+        background-color: white;
+      }
+
+      .icon::after {
+        position: absolute;
+        content: "";
+        top: -18px;
+        right: 0;
+        background: transparent;
+        width: 18px;
+        height: 18px;
+        border-bottom-right-radius: 30px;
+        box-shadow: 10px 10px 0 10px #fff;
+      }
+
+      .icon::before {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: -18px;
+        background: transparent;
+        width: 18px;
+        height: 18px;
+        border-bottom-right-radius: 30px;
+        box-shadow: 10px 10px 0 10px #fff;
+      }
+
+      .icon span {
+        transform: rotate(-40deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50px;
+        background-color: white;
+        transition: 0.3s all linear;
+      }
+
+      .card:nth-child(1) .icon span {
+        background-color: #d3b19a;
+      }
+
+      .card:nth-child(2) .icon span {
+        background-color: #70b3b1;
+      }
+
+      .card:nth-child(3) .icon span {
+        background-color: #d05fa2;
+      }
+
+      .icon i {
+        color: white;
+        font-size: 24px;
+      }
+      .icon:hover span {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+
+      .content h3 {
+        font-size: 24px;
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="heading">
+        <h2>Cards with inverted border-radius</h2>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="card-inner">
+            <div class="box">
+              <div class="img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1601049676869-702ea24cfd58?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+              <div class="icon">
+                <span>
+                  <a href="#">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Trust & Co.</h3>
+            <p>
+              Fill out the form and the algorithm will offer the right team of
+              experts
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="box">
+              <div class="img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1613235788366-270e7ac489f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+              <div class="icon">
+                <span>
+                  <a href="#">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Trust & Co.</h3>
+            <p>
+              Fill out the form and the algorithm will offer the right team of
+              experts
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-inner">
+            <div class="box">
+              <div class="img-box">
+                <img
+                  src="https://images.unsplash.com/photo-1673847401561-fcd75a7888c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt=""
+                />
+              </div>
+              <div class="icon">
+                <span>
+                  <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Trust & Co.</h3>
+            <p>
+              Fill out the form and the algorithm will offer the right team of
+              experts
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

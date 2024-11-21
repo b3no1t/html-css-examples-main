@@ -1,0 +1,251 @@
+/* offcanvas */
+/* https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans');
+
+
+
+#toogle-menu{
+	display: none;
+}
+
+/* base: soft reset for the demo  */
+@layer base{
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html{
+		font-size: 10px;
+		font-family: 'Work Sans', sans-serif;
+	}	
+	body{
+		font-size: 1.5rem;
+		font-weight: 900;
+		background-color: #000;
+		color: azure;
+	}
+	a{
+		text-decoration: none;
+		color: aquamarine;
+	}
+	li{
+		/*delete the bullet of item list*/
+		list-style-type: none
+	}
+}
+
+/* layout */
+@layer design{
+	section{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+
+		&:nth-child(odd){
+			background-color: beige;
+		}
+		&:nth-child(even){
+			background-color: lightcoral;
+		}
+	}
+}
+
+/* mecanisme du offcanvas*/
+@layer demo{
+
+	@keyframes hover{
+			50% {
+				transform: translateX(16px);
+			}
+	}
+
+.offcanvas-menu{
+
+	> label{
+		top: 30px;
+		left: 30px;
+		position: fixed;
+		z-index: 50;
+
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		
+		display: flex;
+		align-items: center;
+
+	}
+	label{
+		
+		span,
+		span::before,
+		span::after{
+			transition:
+				background-color .35s
+				transform .35s;
+		}
+		span,
+		span::before,
+		span::after{
+			content: "";
+			position: absolute;
+			height: 4px;
+			width: 40px;
+			background-color: blue;
+		}
+
+		span::before{
+			transform: translateY(-12px);
+		}
+		span::after{
+			transform: translateY(12px);
+		}
+	}
+
+}
+
+nav{
+	position: fixed;
+	height: 100%;
+	width: 350px;
+	left: -350px;
+	overflow: hidden;
+	padding: 40px 30px;
+	background-color: #fafaf8;
+
+	transition: .35s ease;
+
+	> div{
+
+			display: flex;
+			align-self: center;
+			justify-content: space-between;
+
+			a {
+					color: red;
+					font-size: 3rem;
+					align-items: center;
+				/* TODO gradient in a text */
+			}
+
+			label{
+
+					width: 30px;
+					height: 30px;
+					display: flex;
+					align-items: center;
+					justify-items: center;
+					cursor: pointer;
+
+					transition: .35s ease;
+
+						span,
+						span::before,
+						span::after{
+							background-color: gray;
+						}
+			}
+
+			ul {
+				margin-top: 2rem;
+
+				counter-reset: nav-link-count;
+
+				li{
+					counter-increment: nav-link-count;
+
+					cursor: pointer;
+					padding: 10px 0;
+					opacity: 0;
+					transform: translateX(-2rem);
+					transition: .35s;
+
+						a{
+								line-height: 1.8;
+
+								display: block;
+								color: gray;
+
+								&::after{
+									content:": " counter(nav-link-count);
+								}
+						}
+
+						&:hover{
+							animation: hover .45s;
+						}
+				}
+			}
+	}
+
+}
+
+input[type=checkbox]{
+	display: none;
+	&:checked{
+		/*https://developer.mozilla.org/fr/docs/Web/CSS/Subsequent-sibling_combinator*/
+		~ label{
+			opacity: 0;
+			pointer-events: none;
+			/*rend le lien pas cliquable*/
+		}
+		~ nav{
+			left: 0px;
+		}
+		~ nav label span{
+			background-color: transparent;
+		}
+		~ nav label span:before{
+			transform: rotate(-45deg);
+		}
+	}
+	&:checked{
+		/*https://developer.mozilla.org/fr/docs/Web/CSS/Subsequent-sibling_combinator*/
+		~ label{
+			opacity: 0;
+			pointer-events: none;
+			/*rend le lien pas cliquable*/
+		}
+		~ nav{
+			left: 0px;
+		}
+		~ nav label span{
+			background-color: transparent;
+		}
+		~ nav label span:before{
+			transform: rotate(-45deg);
+		}
+		~ nav label span:after{
+			transform: rotate(45deg);
+		}
+		~ nav label span:before,
+		~ nav label span:after{
+			transition-delay: .25s;
+		}
+		~ nav ul li{
+			opacity: 1;
+			transform: translateX(0);
+		}
+		~ nav ul li:nth-child(1){
+			transition-delay: .1s;
+		}
+		~ nav ul li:nth-child(2){
+			transition-delay: .2s;
+		}
+		~ nav ul li:nth-child(3){
+			transition-delay: .3s;
+		}
+		~ nav ul li:nth-child(4){
+			transition-delay: .4s;
+		}
+		~ nav ul li:nth-child(5){
+			transition-delay: .5s;
+		}
+	}
+}
+
+}
+
+@layer demo, design, base;
